@@ -31,8 +31,11 @@ a = [50, 40, 30, 20, 10, 5]
 get '/i' do
   content_type 'image/jpeg'
   if a.empty?
+    puts "Full resolution"
     File.read(image)
   else
-    pixelate image, a.delete_at(0)
+    n = a.delete_at(0)
+    puts "#{100.0/n}% resolution"
+    pixelate image, n
   end
 end
