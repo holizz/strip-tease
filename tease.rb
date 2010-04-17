@@ -29,7 +29,7 @@ get '/' do
 END
 end
 
-a = [50, 40, 30, 20, 10, 5, 3]
+a = [50, 40, 30, 20, 10, 5]
 get '/i' do
   content_type 'image/jpeg'
   if a.empty?
