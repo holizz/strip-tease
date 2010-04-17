@@ -27,7 +27,12 @@ get '/' do
 END
 end
 
+a = [50, 40, 30, 20, 10, 5, 3]
 get '/i' do
   content_type 'image/jpeg'
-  pixelate image, 6
+  if a.empty?
+    File.read(image)
+  else
+    pixelate image, a.delete_at(0)
+  end
 end
