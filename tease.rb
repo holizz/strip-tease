@@ -8,10 +8,12 @@ require 'im_magick'
 image = 'image.jpg'
 
 def pixelate image, degree
+  size = ImMagick::identify.format('%wx%h!').run.on(image).result[0]
+  p size
   cmd = ImMagick::convert do |i|
     i.from image
     i.scale "#{100.0/degree}%"
-    i.scale "#{100.0*degree}%"
+    i.scale size
   end
   p cmd
   tmp = Tempfile.new('img')
