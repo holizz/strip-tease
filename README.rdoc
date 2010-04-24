@@ -1,0 +1,9 @@
+= strip-tease
+
+Put an image in image.jpg, run ruby tease.rb, and subsequent refreshes of the
+page will progressively de-pixelate the image until it's at 100% quality.
+
+Note: using the vanilla im_magick gem erroneously aliases scale to resize
+meaning the image would instead be blurred. I have a patched repo:
+
+* http://github.com/holizz/im_magick
